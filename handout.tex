@@ -1,0 +1,41 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=.50in]{geometry}
+\usepackage[backend=biber, style=authoryear-icomp]{biblatex}
+\usepackage{ot-tableau}
+\usepackage{easylist}
+\usepackage{hanging}
+\usepackage{hyperref}
+\usepackage{blindtext}
+\usepackage{tipa}
+\usepackage{cgloss4e}
+\usepackage{gb4e}
+\usepackage{qtree}
+\usepackage{enumerate}
+\usepackage{longtable}
+\usepackage{textgreek}
+\addbibresource{$HOME/Documents/LaTeX/uni.bib}
+
+\title{<++>}
+\author{Luke Smith}
+
+\pagenumbering{gobble}
+
+\newcommand{\linia}{\rule{\linewidth}{0.5pt}}
+
+\makeatletter
+
+\renewcommand{\maketitle}{\begin{center}
+\huge \@title\end{center}
+\linia\\
+{\large\@author\hfill\@date\\}}
+
+\begin{document}
+
+\maketitle
+
+<++>
+
+\printbibliography
+
+\end{document}

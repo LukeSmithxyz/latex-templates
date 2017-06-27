@@ -1,0 +1,163 @@
+\documentclass[letterpaper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks=true,urlcolor=ForestGreen]{hyperref}
+\usepackage{titlesec}
+\usepackage[margin=1in]{geometry}
+\usepackage{longtable}
+
+
+%Setting the font I want:
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\sfdefault}{ppl}
+
+%Defining the entry command:
+\newcommand{\entry}[4]{
+
+\begin{minipage}[t]{.15\textwidth}
+\hfill \textsc{#1}
+\end{minipage}
+\hfill\vline\hfill
+\begin{minipage}[t]{.80\textwidth}
+#2
+
+\textit{#3}
+
+\footnotesize{#4}
+\end{minipage}\\\vspace{.25cm}}
+
+%\newcommand{\entry}[4]{
+%
+%\begin{minipage}[c]{.15\textwidth}
+%\hfill \textsc{#1} \Bigg\{
+%\end{minipage}
+%\begin{minipage}[c]{.80\textwidth}
+%#2
+%
+%\textit{#3}
+%
+%\footnotesize{#4}
+%\end{minipage}\\\vspace{.25cm}}
+
+%Some macros because I'm lazy:
+\newcommand{\uga}{University of Georgia}
+\newcommand{\gsu}{Georgia State University}
+\newcommand{\ua}{University of Arizona}
+
+%Section spacing and format:
+\titleformat{\section}{\Large\scshape\raggedright}{}{1em}{}[\titlerule]
+\titlespacing{\section}{0pt}{3pt}{3pt}
+
+\begin{document}
+
+\pagenumbering{gobble}
+
+\par{\centering{\Huge Luke \textsc{Smith}}\par}
+
+\section{Basic Info}
+
+\begin{tabular}{rl}
+    \textsc{Mail:}   & 1103 East University Boulevard, Tucson, Arizona 85721-0025 \\
+    \textsc{Email:}     & \href{mailto:luke@lukesmith.xyz}{luke@lukesmith.xyz}\\
+    \textsc{www:}&\href{http://www.lukesmith.xyz}{http://www.lukesmith.xyz}
+\end{tabular}
+
+\vspace{.25cm}
+
+\noindent I'm interested in uncovering and formalizing the primitives of the human mind, primarily by investigating the structure and variance of human language, and how the human linguistic system may have come about evolutionarily. This can put us marginally closer to understanding humankind and how our brains process and make sense of the world around us, and may aid in crafting technologies that can analogue or interface with the mind.
+
+\vspace{.25cm}
+
+\noindent More likely, however is that it will help us understand how disheveled and confused our mental life is, and will thus hopefully temper the human arrogance so overwhelming in some circles. My main field is linguistics, but I jump seamlessly from it to behavioral economics, psychology, Game Theory and related fields. I strongly believe in interdisciplinarity (so long as we can avoid the pretentiousness that too often accompanies it).
+
+\section{Institutions}
+
+\entry{2015--2018}{\textbf{Ph.D in Linguistics}}{\ua, Tucson}{Focusing on biolinguistics, syntax and human language technology}
+\entry{2013--2015}{\textbf{M.A. in Linguistics}}{\uga, Athens, Georgia}{Major in Syntax; minor in \textbf{Romance Languages}. Thesis: \textit{External Possession and the Undisentanglability of Syntax and Semantics}; download link: \href{http://lukesmith.xyz/dox/luke\_thesis.pdf}{http://lukesmith.xyz/dox/luke\_thesis.pdf}}
+\entry{2015--2018}{\textbf{B.A. in International Economics and Modern Languages}}{Andrew Young School of Policy Studies, \gsu, Atlanta}{Specializations in Spanish and Chinese. Certificates in Economic History and International Trade}
+
+\section{Presentations}
+
+Current projects and other information can be found \href{http://lukesmith.xyz/academic.php}{here}.
+
+\entry{2015}{``Towards Biolinguistic Clarity in Generative Syntax'' (\href{https://www.youtube.com/watch?v=yk03pXPGiVs}{video link})}{The Interdisciplinary Linguistics Conference at UGA, 2015}
+
+\entry{2015}{``Syntax is for Real! -- Parameterization of Head Movement in Korean and its Effects on Scope and Alternations''}{LSUGA Tiny Talks}
+
+\entry{2015}{``External Possession and the Undisentanglability of Syntax and Semantics''}{\uga\ Linguistics Program Spring Colloquium}
+
+\entry{2013}{``The acquisition of \emph{t\'u} and \emph{usted} by English speakers: A study of non-native knowledge and usage of forms of address''}{Georgia State Undergraduate Research Conference}
+
+\entry{2012}{``Theories of contraction: A survey of macroeconomic theories of depression''}{Georgia State Undergraduate Research Conference}
+
+
+\section{Guest Presentations}
+
+
+
+\entry{2016}{``The Phonetics of Language''}{Guest Lecture}{For Amy Fountain's class \textit{Language}}
+
+\entry{2016}{``Constituent Structure---What is it and where does it come from?''}{Guest Lecture (series of 3)}{For Simin Karimi's class \textit{Introduction to Syntax}}
+
+\entry{2016}{``An Introduction to Minimalism'' \& ``Optimizing Structure''}{Guest Lectures}{For Doug Merchant's class \textit{Generative Syntax}}
+
+
+\entry{2015}{``Syntactic Theory and Psycholinguistics''}{Guest lecture}{For Doug Merchant's class \textit{Psychology of Language}}
+
+
+\section{Teaching}
+
+More teaching information, along with my teaching evaluations and some materials can be found \href{http://www.lukesmith.xyz/classes.php}{here}.
+
+
+%\entry{Fall 2017}{LING480 -- ``Historical and Comparative Linguistics'' -- Instructor}{\ua}{Covering general historical linguistic methods, reconstruction, comparison, language typology and the historical development of linguistics as a field.}
+
+
+\entry{Spring 2016}{LING300 -- ``Introduction to Syntax'' -- Teaching Assistant}{\ua}{Helped introduce undergraduates to the Gospel of Chomsky. Served as a substitute for main professor when gone, graded work and did administrivia.}
+
+\entry{2015-Now}{LING150 -- ``Language'' -- Teaching Assistant}{\ua}{I teach Friday sessions and conduct recitations for a break-out section of an auditorium classroom. I conduct my own activities and lectures off of my own syllabus.}
+
+\entry{2014-2015}{LING2100 -- ``Study of Language'' -- Instructor}{\uga}{I worked through my own syllabus and class plan and focus mainly on how language relates to wider issues in cognitive science. Also focused on the philosophy of language and historical linguistics.}
+
+\entry{Fall 2014}{LING3150 -- ``Generative Syntax'' -- Co-teacher}{\uga}{Covered Phrase-Structure Rules and X-bar Theory. A writing intensive course.}
+
+\entry{Fall 2014}{Writing Intensive Program -- Teaching Assistant}{\uga}{Guided and graded essay-writing for linguistics students.}
+
+\section{Service}
+
+\entry{2015--2016}{Indo-European Reading Group Director}{\ua}{Covering general historical linguistics, and the particulars of PIE morphology, phonology and development. Group materials located \href{http://www.lukesmith.xyz/pie.php}{here}.}
+
+\entry{2014--2016}{LSUGA Website Manager}{\uga}{Created and managed the LSUGA website, \href{http://www.lsuga.com}{http://www.lsuga.com}.}
+
+\entry{2014--2015}{LSUGA Interdisciplinary Conference in Linguistics Committee Member}{\uga}{Managed email and recording and audio and video for conference.}
+
+\entry{2014--2015}{Graduate Student Mentor}{\uga}{Took the new kids out on some hot dates.}
+
+\entry{Fall 2014}{Socio-Paths Sociolinguistics Reading Group Co-director}{\uga}
+
+\entry{Spring 2014}{Typology Reading Group Director}{\uga}{Covered classical Greenbergian typology, particularly with relevance to historical linguistics.}
+
+
+\section{Languages (Human)}
+
+\begin{longtable}{rl}
+\textsc{Native:}&English\\
+\textsc{Fluent:}&Spanish\\
+\textsc{Advanced:}&Mandarin\\
+&French\\
+\textsc{Reading:}&Latin\\
+&Greek (Koin\'e)\\
+&Most all Romance languages\\
+\textsc{Some Knowledge:}&All the other ones\\
+\textsc{None:}&Just German, which I can't force myself to learn for some reason
+\end{longtable}
+
+\section{Languages (Machine)}
+\begin{longtable}{rp{12cm}}
+\textsc{Languages:}&Python, Common Lisp, \LaTeX, R, HTML/CSS/PHP for webdev, shell scripting\\
+\textsc{Programs:}&vim, ssh, RStudio, Praat, Audacity, Blender (mostly for video editing, I'm less familiar with 3D modeling), Matlab (GNU Octave), E-Prime\\	\textsc{Systems:}&I've served as a sysadmin for serveral professional and personal products. I'm most adept at administering Linux and Windows systems. I run GNU/Linux personally (the Parabola and Void distributions).
+\end{longtable}
+
+
+
+\end{document}
