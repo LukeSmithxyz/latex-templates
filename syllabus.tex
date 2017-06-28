@@ -1,0 +1,84 @@
+%A simple LaTeX syllabus template by Luke Smith.
+%I believe this is a variation of a template I got by Mike Hammond...?
+
+\documentclass[11pt,twocolumn]{article}
+\usepackage{hyperref,color}
+\usepackage[margin=.5in]{geometry}
+\usepackage{titlesec}
+\usepackage{longtable}
+\usepackage{gb4e}
+%\usepackage[margin=.75in]{geometry}
+
+\pagenumbering{gobble}
+
+%paragraph formatting
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt}
+
+\titlespacing\subsection{0in}{\parskip}{\parskip}
+\titlespacing\section{0in}{\parskip}{\parskip}
+
+%Just fill these in to fill in the basic syllabus information.
+\newcommand{\coursename}{<++>}
+\newcommand{\semester}{<++>}
+\newcommand{\roomnumb}{<++>}
+\newcommand{\classtimes}{<++>}
+\newcommand{\myname}{<++>}
+\newcommand{\myemail}{<++>}
+\newcommand{\office}{<++>}
+\newcommand{\officehours}{<++>}
+\newcommand{\university}{<++>}
+
+\title{\coursename}
+\author{{\university}---{\semester}---{\roomnumb}---{\classtimes}}
+\date{}
+
+
+\begin{document}
+\maketitle
+
+
+\section{Instructor information}
+
+\begin{tabular}{ll}
+Name:&\myname \\
+Contact:&\href{mailto:\myemail}{\myemail}\\
+Office:&\office\\
+Hours:&\officehours\\
+\end{tabular}
+
+\section{Course description}
+
+%Add new sections and content as needed.
+<++>
+
+\section{Grading}
+
+\begin{center}
+\begin{tabular}{cc}
+\begin{tabular}{l|l}	%For grade items (quizzes, homework, etc.)
+Item&Percent\\\hline\hline
+<++>&<++>\%\\
+\end{tabular}
+&
+\begin{tabular}{ll}
+A&90-100\\
+B&80-89\\
+C&70-79\\
+D&60-69\\
+E&59 or below
+\end{tabular}
+\end{tabular}
+\end{center}
+
+\section{Schedule}
+
+
+\begin{tabular}{r|l|p{2.25in}}
+Week&Date&Topic\\\hline\hline
+<++>&	<++>&	<++>\\
+\end{tabular}
+
+
+
+\end{document}
