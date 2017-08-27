@@ -1,18 +1,41 @@
 \documentclass[letterpaper,10pt]{article}
 \usepackage[utf8]{inputenc}
+\usepackage{xifthen}
+\usepackage[T1]{fontenc}
 \usepackage[dvipsnames]{xcolor}
 \usepackage[colorlinks=true,urlcolor=ForestGreen]{hyperref}
 \usepackage{titlesec}
 \usepackage[margin=1in]{geometry}
 \usepackage{longtable}
+\usepackage{titling}
 
+%Your name goes here:
+\author{Luke Smith}
+
+\date{\today}
+\renewcommand{\maketitle}{
+\par{\centering{\Huge  \textsc{\theauthor}}\par}
+{\footnotesize\hfill{}\color{lightgray}(Last updated \thedate.)}}
 
 %Setting the font I want:
 \renewcommand{\familydefault}{\sfdefault}
 \renewcommand{\sfdefault}{ppl}
 
-%Defining the entry command:
 \newcommand{\entry}[4]{
+\ifthenelse{\isempty{#3}}
+{\slimentry{#1}{#2}}{
+
+\begin{minipage}[t]{.15\textwidth}
+\hfill \textsc{#1}
+\end{minipage}
+\hfill\vline\hfill
+\begin{minipage}[t]{.80\textwidth}
+{\bf#2}---\textit{#3}. \footnotesize{#4}
+\end{minipage}\\
+\vspace{.25cm}
+}}
+
+\newcommand{\slimentry}[2]{
 
 \begin{minipage}[t]{.15\textwidth}
 \hfill \textsc{#1}
@@ -20,24 +43,9 @@
 \hfill\vline\hfill
 \begin{minipage}[t]{.80\textwidth}
 #2
-
-\textit{#3}
-
-\footnotesize{#4}
-\end{minipage}\\\vspace{.25cm}}
-
-%\newcommand{\entry}[4]{
-%
-%\begin{minipage}[c]{.15\textwidth}
-%\hfill \textsc{#1} \Bigg\{
-%\end{minipage}
-%\begin{minipage}[c]{.80\textwidth}
-%#2
-%
-%\textit{#3}
-%
-%\footnotesize{#4}
-%\end{minipage}\\\vspace{.25cm}}
+\end{minipage}\\
+\vspace{.25cm}
+}
 
 %Some macros because I'm lazy:
 \newcommand{\uga}{University of Georgia}
@@ -46,41 +54,87 @@
 
 %Section spacing and format:
 \titleformat{\section}{\Large\scshape\raggedright}{}{1em}{}[\titlerule]
-\titlespacing{\section}{0pt}{3pt}{3pt}
+\titlespacing{\section}{0pt}{3pt}{7pt}
+\titleformat{\subsection}{\large\sc\centering}{}{0em}{\underline}%[\rule{3cm}{.2pt}]
+\titlespacing{\subsection}{0pt}{7pt}{7pt}
+
+\setlength{\parindent}{0in}
+\setlength{\parindent}{0in}
 
 \begin{document}
 
-\pagenumbering{gobble}
-
-\par{\centering{\Huge Luke \textsc{Smith}}\par}
+\maketitle
 
 \section{Basic Info}
 
-\begin{tabular}{rl}
-    \textsc{Mail:}   & 1103 East University Boulevard, Tucson, Arizona 85721-0025 \\
+\vspace{.25cm}
+
+\begin{minipage}[t]{.5\linewidth}
+
+\begin{tabular}{rp{.75\linewidth}}
     \textsc{Email:}     & \href{mailto:luke@lukesmith.xyz}{luke@lukesmith.xyz}\\
     \textsc{www:}&\href{http://www.lukesmith.xyz}{http://www.lukesmith.xyz}
 \end{tabular}
+\end{minipage}
+\begin{minipage}[t]{.5\linewidth}
+\begin{tabular}{rl}
+\textsc{Github:} & \href{http://github.com/LukeSmithxyz}{LukeSmithxyz}\\
+\textsc{YouTube:}&\href{http://youtube.com/c/LukeSmithxyz}{LukeSmithxyz}
+\end{tabular}
+\end{minipage}
 
 \vspace{.25cm}
 
-\noindent I'm interested in uncovering and formalizing the primitives of the human mind, primarily by investigating the structure and variance of human language, and how the human linguistic system may have come about evolutionarily. This can put us marginally closer to understanding humankind and how our brains process and make sense of the world around us, and may aid in crafting technologies that can analogue or interface with the mind.
+I like clarity of thought, rigor and non-pretentiousness. I've worked as a linguist, economic researcher and do freelance technical consultation. I mostly just have fun.
 
 \vspace{.25cm}
 
-\noindent More likely, however is that it will help us understand how disheveled and confused our mental life is, and will thus hopefully temper the human arrogance so overwhelming in some circles. My main field is linguistics, but I jump seamlessly from it to behavioral economics, psychology, Game Theory and related fields. I strongly believe in interdisciplinarity (so long as we can avoid the pretentiousness that too often accompanies it).
+In linguistics and cognitive science, I'm mostly interested in motivating linguistic alternations and tendencies in non-linguistic externals, for thereoretical economy, and for the unification of linguistics with other fields.
+
+\vspace{.25cm}
+
+Since late 2016, I've also run a YouTube channel focusing on technology and GNU/Linux.
 
 \section{Institutions}
 
-\entry{2015--2018}{\textbf{Ph.D in Linguistics}}{\ua, Tucson}{Focusing on biolinguistics, syntax and human language technology}
-\entry{2013--2015}{\textbf{M.A. in Linguistics}}{\uga, Athens, Georgia}{Major in Syntax; minor in \textbf{Romance Languages}. Thesis: \textit{External Possession and the Undisentanglability of Syntax and Semantics}; download link: \href{http://lukesmith.xyz/dox/luke\_thesis.pdf}{http://lukesmith.xyz/dox/luke\_thesis.pdf}}
-\entry{2015--2018}{\textbf{B.A. in International Economics and Modern Languages}}{Andrew Young School of Policy Studies, \gsu, Atlanta}{Specializations in Spanish and Chinese. Certificates in Economic History and International Trade}
+\entry{2015--2017}{Ph.D. in Linguistics}{\ua, Tucson}{Focusing on biolinguistics, syntax and human language technology}
+\entry{2013--2015}{M.A. in Linguistics}{\uga, Athens, Georgia}{Major in Syntax; minor in \textbf{Romance Languages}. Thesis: \textit{External Possession and the Undisentanglability of Syntax and Semantics}; download link: \href{http://lukesmith.xyz/dox/luke\_thesis.pdf}{lukesmith.xyz/dox/luke\_thesis.pdf}}
+\entry{2009--2012}{B.A. in International Economics and Modern Languages}{Andrew Young School of Policy Studies, \gsu, Atlanta}{Specializations in Spanish and Chinese. Certificates in Economic History and International Trade}
 
-\section{Presentations}
+\section{Classes Taught}
+
+More teaching information, along with my teaching evaluations and some materials can be found on my website at \href{http://www.lukesmith.xyz/classes.php}{lukesmith.xyz/classes}.
+
+%\entry{2017--Now}{``Historical Linguistics''}{YouTube}{An ongoing lecture series on YouTube, originally focusing on Historical Linguistics and Linguistic Thought, but brancing out to more general topics.}
+
+\entry{Fall 2017}{ESOC210 -- ``The History of Hacking and Open Source Culture'' -- Graduate Assistant}{\ua}{Under David Seng.}
+
+\entry{Spring 2016}{LING300 -- ``Introduction to Syntax'' -- Teaching Assistant}{\ua}{Under Simin Karimi. Helped introduce undergraduates to the Gospel of Chomsky. Served as a substitute for main professor when gone, graded work and did administrivia.}
+
+\entry{2015--2017}{LING150 -- ``Language'' -- Teaching Assistant}{\ua}{I teach Friday sessions and conduct recitations for a break-out section of an auditorium classroom. I conduct my own activities and lectures off of my own syllabus.}
+
+\entry{2014--2015}{LING2100 -- ``Study of Language'' -- Instructor}{\uga}{I worked through my own syllabus and class plan and focus mainly on how language relates to wider issues in cognitive science. Also focused on the philosophy of language and historical linguistics.}
+
+\entry{Fall 2014}{LING3150 -- ``Generative Syntax'' -- Co-teacher}{\uga}{Covered Phrase-Structure Rules and X-bar Theory. A writing intensive course. Taught with Jennimaria Palom\"aki.}
+
+\entry{Fall 2014}{Writing Intensive Program -- Teaching Assistant}{\uga}{Guided and graded essay-writing for linguistics students.}
+
+
+\section{Lectures and Presentations}
 
 Current projects and other information can be found \href{http://lukesmith.xyz/academic.php}{here}.
 
+\entry{2017}{``Language as Synesthesia'' (\href{https://www.youtube.com/watch?v=he4-K3Ir1PY&list=PL-p5XmQHB_JQdpstJQ4DH18GZ8qt3KVxq}{video link})}{Seminar on language and consciousness}{Clarification of some points from \href{https://www.youtube.com/watch?v=fEY5qkgH3fo&list=PL-p5XmQHB_JQdpstJQ4DH18GZ8qt3KVxq&index=1}{my qualifying paper}.}
+
+\entry{2016}{``The Phonetics of Language''}{Guest Lecture}{For Amy Fountain's class \textit{Language}}
+
+\entry{2016}{``Constituent Structure---What is it and where does it come from?''}{Guest Lecture (series of 3)}{For Simin Karimi's class \textit{Introduction to Syntax}}
+
+\entry{2016}{``An Introduction to Minimalism'' \& ``Optimizing Structure''}{Guest Lectures}{For Doug Merchant's class \textit{Generative Syntax}}
+
 \entry{2015}{``Towards Biolinguistic Clarity in Generative Syntax'' (\href{https://www.youtube.com/watch?v=yk03pXPGiVs}{video link})}{The Interdisciplinary Linguistics Conference at UGA, 2015}
+
+\entry{2015}{``Syntactic Theory and Psycholinguistics''}{Guest lecture}{For Doug Merchant's class \textit{Psychology of Language}}
 
 \entry{2015}{``Syntax is for Real! -- Parameterization of Head Movement in Korean and its Effects on Scope and Alternations''}{LSUGA Tiny Talks}
 
@@ -91,73 +145,71 @@ Current projects and other information can be found \href{http://lukesmith.xyz/a
 \entry{2012}{``Theories of contraction: A survey of macroeconomic theories of depression''}{Georgia State Undergraduate Research Conference}
 
 
-\section{Guest Presentations}
-
-
-
-\entry{2016}{``The Phonetics of Language''}{Guest Lecture}{For Amy Fountain's class \textit{Language}}
-
-\entry{2016}{``Constituent Structure---What is it and where does it come from?''}{Guest Lecture (series of 3)}{For Simin Karimi's class \textit{Introduction to Syntax}}
-
-\entry{2016}{``An Introduction to Minimalism'' \& ``Optimizing Structure''}{Guest Lectures}{For Doug Merchant's class \textit{Generative Syntax}}
-
-
-\entry{2015}{``Syntactic Theory and Psycholinguistics''}{Guest lecture}{For Doug Merchant's class \textit{Psychology of Language}}
-
-
-\section{Teaching}
-
-More teaching information, along with my teaching evaluations and some materials can be found \href{http://www.lukesmith.xyz/classes.php}{here}.
-
-
-%\entry{Fall 2017}{LING480 -- ``Historical and Comparative Linguistics'' -- Instructor}{\ua}{Covering general historical linguistic methods, reconstruction, comparison, language typology and the historical development of linguistics as a field.}
-
-
-\entry{Spring 2016}{LING300 -- ``Introduction to Syntax'' -- Teaching Assistant}{\ua}{Helped introduce undergraduates to the Gospel of Chomsky. Served as a substitute for main professor when gone, graded work and did administrivia.}
-
-\entry{2015-Now}{LING150 -- ``Language'' -- Teaching Assistant}{\ua}{I teach Friday sessions and conduct recitations for a break-out section of an auditorium classroom. I conduct my own activities and lectures off of my own syllabus.}
-
-\entry{2014-2015}{LING2100 -- ``Study of Language'' -- Instructor}{\uga}{I worked through my own syllabus and class plan and focus mainly on how language relates to wider issues in cognitive science. Also focused on the philosophy of language and historical linguistics.}
-
-\entry{Fall 2014}{LING3150 -- ``Generative Syntax'' -- Co-teacher}{\uga}{Covered Phrase-Structure Rules and X-bar Theory. A writing intensive course.}
-
-\entry{Fall 2014}{Writing Intensive Program -- Teaching Assistant}{\uga}{Guided and graded essay-writing for linguistics students.}
 
 \section{Service}
 
+\entry{Fall 2017}{Arizona Linguistic Circle Peer-Reviewer}{\ua}{Judged and gave feedback for scholarly articled submitted for the Arizona Linguistics Circle.}
+
 \entry{2015--2016}{Indo-European Reading Group Director}{\ua}{Covering general historical linguistics, and the particulars of PIE morphology, phonology and development. Group materials located \href{http://www.lukesmith.xyz/pie.php}{here}.}
 
-\entry{2014--2016}{LSUGA Website Manager}{\uga}{Created and managed the LSUGA website, \href{http://www.lsuga.com}{http://www.lsuga.com}.}
+\entry{2014--2016}{LSUGA Website Manager}{\uga}{Created and managed the LSUGA website, \href{http://www.lsuga.com}{http://www.lsuga.com}. (Now apparently reformatted.)}
 
 \entry{2014--2015}{LSUGA Interdisciplinary Conference in Linguistics Committee Member}{\uga}{Managed email and recording and audio and video for conference.}
 
-\entry{2014--2015}{Graduate Student Mentor}{\uga}{Took the new kids out on some hot dates.}
+\entry{2014--2015}{Graduate Student Mentor}{\uga}{}
 
 \entry{Fall 2014}{Socio-Paths Sociolinguistics Reading Group Co-director}{\uga}
 
 \entry{Spring 2014}{Typology Reading Group Director}{\uga}{Covered classical Greenbergian typology, particularly with relevance to historical linguistics.}
 
 
-\section{Languages (Human)}
 
-\begin{longtable}{rl}
-\textsc{Native:}&English\\
-\textsc{Fluent:}&Spanish\\
-\textsc{Advanced:}&Mandarin\\
-&French\\
-\textsc{Reading:}&Latin\\
-&Greek (Koin\'e)\\
-&Most all Romance languages\\
-\textsc{Some Knowledge:}&All the other ones\\
-\textsc{None:}&Just German, which I can't force myself to learn for some reason
-\end{longtable}
+\section{Languages}
+\entry{Human}{Spanish, Mandarin, Latin, reading knowledge of classical Greek and most Romance languages. Grammatical knowledge of a many Indo-European languages, Korean and others.}{}{}
 
-\section{Languages (Machine)}
-\begin{longtable}{rp{12cm}}
-\textsc{Languages:}&Python, Common Lisp, \LaTeX, R, HTML/CSS/PHP for webdev, shell scripting\\
-\textsc{Programs:}&vim, ssh, RStudio, Praat, Audacity, Blender (mostly for video editing, I'm less familiar with 3D modeling), Matlab (GNU Octave), E-Prime\\	\textsc{Systems:}&I've served as a sysadmin for serveral professional and personal products. I'm most adept at administering Linux and Windows systems. I run GNU/Linux personally (the Parabola and Void distributions).
-\end{longtable}
+\entry{Machine}{Python, Perl, R, PHP, Matlab, bash, some knowledge both of common LISP and Haskell, {\LaTeX}, HTML, CSS}{}{}
 
+\section{Tools I Use}
 
+\subsection{Usual Workflow}
+
+I use a \textbf{vim}-based setup in a tiling window manager (\textbf{i3-gaps}). I compile documents using \textbf{\LaTeX}, and \textbf{biber} for references. I prefer to do multimedia manipulation in the terminal with tools like \textbf{imagemagick} and \textbf{ffmpeg}.
+tmux, ranger, ssh, mutt/notmuch/OfflineIMAP. Have run Microsoft, MacOS and GNU/Linux systems (both Debian and Arch-based varieties). I currently run Void Linux on my machines.
+
+\subsection{Programs I Use}
+
+Matlab, R/RStudio, Blender, Praat, Audacity, E-Prime, GIMP, pandoc, Jupyter. I've managed websites manually via ssh and vim using HTML/CSS/PHP and with tools such as WordPress via either cpanel or wp-cli.
+
+\section{Public Code and Scripts}
+
+\entry{Pre-release}{\href{http://github.com/LukeSmithxyz/memespeaker}{Memespeaker}}{Narrated slideshow creator}{An ffmpeg-based tool for illustrating audio talks and lectures with pictures, without the time-consuming process of using video-editing software.}
+\entry{2016-Now}{\href{http://github.com/LukeSmithxyz/voidrice}{Voidrice}}{Linux dotfiles}{A set of GNU/Linux dotfiles that I popularized on YouTube, aiming at creating a powerful, optimized, all-purpose and lightweight general computing environment. Innovated dynammically configured and synced rc files.}
+\entry{2015---Now}{\href{http://LukeSmith.xyz}{http://LukeSmith.xyz}}{My website}{I proudly report my website is minimal, yet attractive, with no sore-eyed CSS pseudo-magic and good readability. Modern traditional feel. Written in HTML/CSS/PHP.}
+\entry{2016}{/Comfy/ Arch}{Automatic ricing tool}{A web-based deployment system for configuration files which focuses on enabling novice Linux users to get immersed quickly in advanced ricing environments. No longer actively maintained, but likely to undergo an update.}
+\entry{2013}{Vulgarizer}{Sound Change Simulator}{A string-manipulization paradigm written in Python for simulating phonetic and phonological change over time. The original implementation focused on modeling changes between Latin and Spanish and then other Romance languages, but if I continue the project, my hope is to generalize this.}
+
+\section{Online Tutorials}
+
+I produce screencasts and produce other videos for public use as tutorials on YouTube on my channel (\href{https://youtube.com/c/LukeSmithxyz}{youtube.com/c/LukeSmithxyz}).
+
+\entry{{\LaTeX}}{Covering {\LaTeX} basics and advanced techniques: formatting, use of bibtex for automatic citations sectioning, image-use, beamer presentations, macros.}{}{}
+
+\entry{vim}{Covering the extensible text-editor vim: basic tips, use of text objects, macros, remaps for creating IDE-like environments and some screencasts of practical uses in my day-by-day life.}{}{}
+
+\entry{Linux Ricing}{Videos on hacking and modifying Linux graphical environments particularly on i3-gaps, including customization, window management, program-shorcutting, optimization.}{}{}
+
+\section{Writings}
+
+Section incomplete. To be updated.
+
+\entry{In Progress}{The Game Theoretics of Quantifier Scope}{Second qualifying paper}{}
+
+\entry{2017}{Syntax Without Syntax}{First qualifying paper}{(\href{https://www.youtube.com/watch?v=fEY5qkgH3fo}{video casually explaining it})}
+
+\entry{2015}{External Possession and the Undisentanglability of Syntax and Semantics}{My Master's thesis}{(\href{http://lukesmith.xyz/dox/luke_thesis.pdf}{download link})}
+
+\section{Hobbies}
+
+Classical languages, human evolution and prehistory, cybernetics, medieval thought.
 
 \end{document}

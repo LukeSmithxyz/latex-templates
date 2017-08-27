@@ -1,0 +1,127 @@
+%This code is based on some written by Stack Exchange member Scott H.
+
+\documentclass[10pt]{article}
+
+\usepackage{xstring}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{xparse}
+\usepackage[margin=1in]{geometry}
+
+\input{random.tex}
+\newcount\randomnum
+\ExplSyntaxOn
+
+\seq_new:N \g_my_items_seq
+\seq_new:N \l_my_tmp_items_seq
+\seq_new:N \g_my_randomized_seq
+\int_new:N \l_tmp_int
+\msg_new:nnnn {bingo} {Too~few~items!} {Provide~at~least~24~items!}{}
+
+\cs_generate_variant:Nn \seq_item:Nn {Nx}
+\cs_generate_variant:Nn \seq_remove_all:Nn {Nx}
+
+\NewDocumentCommand {\myItems} {m}
+    {
+      \seq_clear:N \g_my_items_seq % clear item list 
+      \seq_gset_split:Nnn \g_my_items_seq {;} {#1} % put item list in seq
+      \int_compare:nNnT {\seq_count:N \g_my_items_seq} < {24} {\msg_error:nn {bingo} {Too~few~items!}} % check whether there are enough items
+    }
+
+\NewDocumentCommand{\setItems}{}
+{
+\seq_set_eq:NN \l_my_tmp_items_seq \g_my_items_seq % put in temp seq so that multiple cards can be produced
+\prg_replicate:nn {24} %generate random list of 24 items
+    {
+        \int_set:Nn \l_tmp_int {\seq_count:N \l_my_tmp_items_seq}% set current length of list
+        \setrannum{\randomnum}{1}{\int_use:N \l_tmp_int} % choose random num up to length of seq
+        \seq_put_right:Nx \g_my_randomized_seq {\seq_item:Nn \l_my_tmp_items_seq {\the\randomnum}}% grab corresponding item and put in tmp seq
+        \seq_remove_all:Nx \l_my_tmp_items_seq {\seq_item:Nn \l_my_tmp_items_seq {\the\randomnum}}%delete that item from temp seq
+    }
+\seq_clear:N \l_my_tmp_items_seq %clear temp seq when done
+}
+
+\NewDocumentCommand {\NodeText}{}
+    {
+        \seq_gpop_right:NN \g_my_randomized_seq \l_tmpa_tl %pop item from randomized seq into token list
+        \tl_use:N \l_tmpa_tl %use that item.
+    }
+
+
+\ExplSyntaxOff
+
+\def\NumOfColumns{5}%
+\def\Sequence{1, 2, 3, 4, 5}%
+
+
+
+\title{Chomsky BINGO!}
+
+\begin{document}
+
+\pagenumbering{gobble}
+
+\newcommand{\Size}{3.25cm}
+\tikzset{Square/.style={
+inner sep=0pt,
+text width=\Size, 
+minimum size=\Size,
+draw=black,
+align=center,
+}
+}
+
+{\centering\huge Trump BINGO!\hrule}
+\vspace{.2in}
+
+This BINGO card is for use at any Trump event, be it a rally, debate, speech or press conference.
+
+\vspace{.5in}
+
+%\myItems{this;will;produce;an;error;because;there;aren't;enough;items}
+
+\myItems{Not gonna happen anymore, folks!;
+audience starts chanting ``BUILD A WALL!'';
+Be\emph{lieve} me folks!;
+Radical.\\Islamic.\\Terrorism.;
+getting into a tangent within a tangent;
+We have stupid leaders!;
+CROOKED HILLARY!;
+LYEN TED!;
+Pocahontas;
+making fun of Mitt Romney being a dweeb;
+I will be great for [minority group]!;
+the dishonest media!;
+They never move the cameras!;
+I'm a unifier folks!;
+opponent is ``totally controlled'' by the special interests;
+GEDUM OUTTA HERE!!!;
+They have to go back!;
+The people of our country are incredible!;
+We have to be tough / smart / vigilant!;
+We're bringing in people we have no idea who they are!;
+We will bring education local!;
+We will repleal and replace Obamacare, which is a disaster!;
+asdfsdafadsf;
+asfdsdafsadff;
+asdfsdafdsf;
+asdfdsf;
+sadfds}
+
+
+\setItems
+
+\begin{tikzpicture}[draw=black, thick, x=\Size,y=\Size]
+\foreach \row in \Sequence{%
+    \foreach \col in \Sequence {%
+        \pgfmathtruncatemacro{\value}{\col+\NumOfColumns*(\row-1)}
+        \pgfmathsetmacro{\ColRowProduce}{\col*\row}
+        \IfEq{\ColRowProduce}{9}{% If is center square
+            \node [Square] at ($(\col,-\row)-(0.5,0.5)$) {\large Make America Great Again!\\ (\textbf{FREE})};
+        }{
+            \node [Square] at ($(\col,-\row)-(0.5,0.5)$) {\large \NodeText};
+        }
+    }
+}    
+\end{tikzpicture}
+\end{document}
