@@ -12,6 +12,8 @@
 \usepackage{longtable}
 \usepackage{titling}
 \newfontfamily\cfont{Noto Sans CJK SC}
+\usepackage{libertine}
+
 
 %%%%%%%Macro of image links in XeLaTeX
 \ifxetex
@@ -42,7 +44,7 @@
 
 %Setting the font I want:
 \renewcommand{\familydefault}{\sfdefault}
-\renewcommand{\sfdefault}{ppl}
+\usepackage{sqrcaps}
 
 \newcommand{\entry}[4]{
 \ifthenelse{\isempty{#3}}
@@ -108,8 +110,6 @@
 
 \section{Basic Info}
 
-\vspace{.25cm}
-
 \begin{minipage}[t]{.5\linewidth}
 
 \begin{tabular}{rp{.75\linewidth}}
@@ -145,7 +145,7 @@ Since late 2016, I've also run a YouTube channel focusing on technology and GNU/
 \entry{2013--2015}
 	{M.A. in Linguistics}
 	{\uga, Athens, Georgia}
-	{Major in Syntax; minor in \textbf{Romance Languages}. Thesis: \textit{External Possession and the Undisentanglability of Syntax and Semantics} \href{http://lukesmith.xyz/thesis.pdf}{\pdf} Advisor: \vera.}
+	{Major in Syntax; minor in \textbf{Romance Languages}. Thesis: \textit{External Possession and the Undisentanglability of Syntax and Semantics} \href{http://lukesmith.xyz/thesis.pdf}{\pdf}. Advisor: \vera.}
 \entry{2012}
 	{Exchange Program, Zhèngzh\=ou Dàxué (\cfont{郑州大学})}
 	{Zhèngzh\=ou, China}
@@ -161,64 +161,68 @@ More teaching information, along with my teaching evaluations and some materials
 
 %\entry{2017--Now}{``Historical Linguistics''}{YouTube}{An ongoing lecture series on YouTube, originally focusing on Historical Linguistics and Linguistic Thought, but brancing out to more general topics.}
 
+\entry{2018}
+	{LING150 -- ``Language'' Online Class}
+	{\ua}
+	{With \amy.}
+
 \entry{2017--2018}
-{ESOC210 -- ``The History of Hacking and Open Source Culture'' -- Graduate Assistant}
-{\ua}
-{Under David Seng.}
+	{ESOC210 -- ``The History of Hacking and Open Source Culture'' -- Graduate Assistant}
+	{\ua}
+	{Under David Seng.}
 
 \entry{Spring 2016}
-{LING300 -- ``Introduction to Syntax'' -- Teaching Assistant}
-{\ua}
-{Under Simin Karimi. Helped introduce undergraduates to the Gospel of Chomsky. Served as a substitute for main professor when gone, graded work and did administrivia.}
+	{LING300 -- ``Introduction to Syntax'' -- Teaching Assistant}
+	{\ua}
+	{Under Simin Karimi. Helped introduce undergraduates to the Gospel of Chomsky. Served as a substitute for main professor when gone, graded work and did administrivia.}
 
-\entry{2015--2018}
-{LING150 -- ``Language'' -- Teaching Assistant}
-{\ua}
-{With \amy. I teach Friday sessions and conduct recitations for a break-out section of an auditorium classroom. I conduct my own activities and lectures off of my own syllabus.}
+\entry{2015--2017}
+	{LING150 -- ``Language'' -- Teaching Assistant}
+	{\ua}
+	{With \amy. I teach Friday sessions and conduct recitations for a break-out section of an auditorium classroom. I conduct my own activities and lectures off of my own syllabus.}
 
 \entry{2014--2015}
-{LING2100 -- ``Study of Language'' -- Instructor \href{http://lukesmith.xyz/dox/2100/2100_fa.pdf}{\pdf} \href{http://lukesmith.xyz/dox/2100/2100_sp.pdf}{\pdf}}
-{\uga}
-{I worked through my own syllabus and class plan and focus mainly on how language relates to wider issues in cognitive science. Also focused on the philosophy of language and historical linguistics.}
+	{LING2100 -- ``Study of Language'' -- Instructor \href{http://lukesmith.xyz/dox/2100/2100_fa.pdf}{\pdf} \href{http://lukesmith.xyz/dox/2100/2100_sp.pdf}{\pdf}}
+	{\uga}
+	{I worked through my own syllabus and class plan and focus mainly on how language relates to wider issues in cognitive science. Also focused on the philosophy of language and historical linguistics.}
 
 \entry{Fall 2014}
-{LING3150 -- ``Generative Syntax'' -- Co-teacher}
-{\uga}
-{Covered Phrase-Structure Rules and X-bar Theory. A writing intensive course. Taught with \jenni.}
+	{LING3150 -- ``Generative Syntax'' -- Co-teacher}
+	{\uga}
+	{Covered Phrase-Structure Rules and X-bar Theory. A writing intensive course. Taught with \jenni.}
 
 \entry{Fall 2014}
-{Writing Intensive Program -- Teaching Assistant}
-{\uga}
-{Guided and graded essay-writing for linguistics students.}
-
+	{Writing Intensive Program -- Teaching Assistant}
+	{\uga}
+	{Guided and graded essay-writing for linguistics students.}
 
 \section{Lectures and Presentations}
 
 Current projects and other information can be found on \href{http://lukesmith.xyz/linguistics.html}{http://lukesmith.xyz/linguistics}.
 
-\entry{2017}
-{``Scope without Syntax: Towards a Game Theoretic Approach'' \href{http://lukesmith.xyz/dox/ling/luke_synsalon.pdf}{\pdf}}
-{\ua{} Synsalon}
+\entry{2018}
+	{``Scope without Syntax: Towards a Game Theoretic Approach'' \href{http://lukesmith.xyz/dox/ling/luke_synsalon.pdf}{\pdf}}
+	{\ua{} Synsalon}
 
 \entry{2017}
-{``The Origins and Mechanics of the Greek Alphabet'' \href{http://lukesmith.xyz/dox/etc/greek_alphabet.pdf} {\pdf}}
-{Guest Lecture}
-{For Shannon Grippando's class \textit{The Psychology of Writing Systems}}
+	{``The Origins and Mechanics of the Greek Alphabet'' \href{http://lukesmith.xyz/dox/etc/greek_alphabet.pdf} {\pdf}}
+	{Guest Lecture}
+	{For Shannon Grippando's class \textit{The Psychology of Writing Systems}}
 
 \entry{2017}
-{``Language as Synesthesia'' \href{https://www.youtube.com/watch?v=he4-K3Ir1PY&list=PL-p5XmQHB_JQdpstJQ4DH18GZ8qt3KVxq} {\yt}}
-{Seminar on language and consciousness}
-{Clarification of some points from \href{https://www.youtube.com/watch?v=fEY5qkgH3fo&list=PL-p5XmQHB_JQdpstJQ4DH18GZ8qt3KVxq&index=1} {my qualifying paper}.}
+	{``Language as Synesthesia'' \href{https://www.youtube.com/watch?v=he4-K3Ir1PY&list=PL-p5XmQHB_JQdpstJQ4DH18GZ8qt3KVxq} {\yt}}
+	{Seminar on language and consciousness}
+	{Clarification of some points from \href{https://www.youtube.com/watch?v=fEY5qkgH3fo&list=PL-p5XmQHB_JQdpstJQ4DH18GZ8qt3KVxq&index=1} my qualifying paper.}
 
 \entry{2016}
-{``The Phonetics of Language''}
-{Guest Lecture}
-{For Amy Fountain's class \textit{Language}}
+	{``The Phonetics of Language''}
+	{Guest Lecture}
+	{For Amy Fountain's class \textit{Language}}
 
 \entry{2016}
-{``Constituent Structure---What is it and where does it come from?''}
-{Guest Lecture (series of 3)}
-{For Simin Karimi's class \textit{Introduction to Syntax}}
+	{``Constituent Structure---What is it and where does it come from?''}
+	{Guest Lecture (series of 3)}
+	{For Simin Karimi's class \textit{Introduction to Syntax}}
 
 \entry{2016}{``An Introduction to Minimalism''
 	\href{http://lukesmith.xyz/dox/etc/luke_doug_min.pdf}{\pdf}
@@ -233,76 +237,73 @@ Current projects and other information can be found on \href{http://lukesmith.xy
 	}{Guest lecture}{For Doug Merchant's class \textit{Psychology of Language}}
 
 \entry{2015}
-{``Syntax is for Real! -- Parameterization of Head Movement in Korean and its Effects on Scope and Alternations''}
-{LSUGA Tiny Talks}
+	{``Syntax is for Real! -- Parameterization of Head Movement in Korean and its Effects on Scope and Alternations''}
+	{LSUGA Tiny Talks}
 
 \entry{2015}
-{``External Possession and the Undisentanglability of Syntax and Semantics''}
-{\uga\ Linguistics Program Spring Colloquium}
+	{``External Possession and the Undisentanglability of Syntax and Semantics''}
+	{\uga\ Linguistics Program Spring Colloquium}
 
 \entry{2013}
-{``The acquisition of \emph{t\'u} and \emph{usted} by English speakers: A study of non-native knowledge and usage of forms of address''}
-{Georgia State Undergraduate Research Conference}
+	{``The acquisition of \emph{t\'u} and \emph{usted} by English speakers: A study of non-native knowledge and usage of forms of address''}
+	{Georgia State Undergraduate Research Conference}
 
 \entry{2012}
-{``Theories of contraction: A survey of macroeconomic theories of depression''}
-{Georgia State Undergraduate Research Conference}
-
-
+	{``Theories of contraction: A survey of macroeconomic theories of depression''}
+	{Georgia State Undergraduate Research Conference}
 
 \section{Service}
 
 \entry{2017--Now}
-{Manager for Tom Bever's Language and Cognition Lab site}
-{\ua}
-{\href{http://coglanglab.com}{http://coglanglab.com}}
+	{Manager for Tom Bever's Language and Cognition Lab site}
+	{\ua}
+	{\href{http://coglanglab.com}{http://coglanglab.com}}
 
 \entry{Fall 2017}
-{Arizona Linguistic Circle Peer-Reviewer}
-{\ua}
-{Judged and gave feedback for scholarly articled submitted for the Arizona Linguistics Circle.}
+	{Arizona Linguistic Circle Peer-Reviewer}
+	{\ua}
+	{Judged and gave feedback for scholarly articled submitted for the Arizona Linguistics Circle.}
 
 \entry{2015--2016}
-{Indo-European Reading Group Director}
-{\ua}
-{Covering general historical linguistics, and the particulars of PIE morphology, phonology and development. Group materials located at \href{http://www.lukesmith.xyz/pie}{lukesmith.xyz/pie}.}
+	{Indo-European Reading Group Director}
+	{\ua}
+	{Covering general historical linguistics, and the particulars of PIE morphology, phonology and development. Group materials located at \href{http://www.lukesmith.xyz/pie}{lukesmith.xyz/pie}.}
 
 \entry{2014--2016}
-{LSUGA Website Manager}
-{\uga}
-{Created and managed the LSUGA website, \href{http://www.lsuga.com}{http://www.lsuga.com}. (Now apparently reformatted.)}
+	{LSUGA Website Manager}
+	{\uga}
+	{Created and managed the LSUGA website, \href{http://www.lsuga.com}{http://www.lsuga.com}. (Now apparently reformatted.)}
 
 \entry{2014--2015}
-{LSUGA Interdisciplinary Conference in Linguistics Committee Member}
-{\uga}
-{Managed email and recording and audio and video for conference.}
+	{LSUGA Interdisciplinary Conference in Linguistics Committee Member}
+	{\uga}
+	{Managed email and recording and audio and video for conference.}
 
 \entry{2014--2015}
-{Graduate Student Mentor}
-{\uga}
-{}
+	{Graduate Student Mentor}
+	{\uga}
+	{}
 
 \entry{Fall 2014}
-{Socio-Paths Sociolinguistics Reading Group Co-director}
-{\uga}
+	{Socio-Paths Sociolinguistics Reading Group Co-director}
+	{\uga}
 
 \entry{Spring 2014}
-{Typology Reading Group Director}
-{\uga}
-{Covered classical Greenbergian typology, particularly with relevance to historical linguistics.}
-
-
+	{Typology Reading Group Director}
+	{\uga}
+	{Covered classical Greenbergian typology, particularly with relevance to historical linguistics.}
 
 \section{Languages}
+
 \entry{Human}
-{Spanish, Mandarin, Latin, reading knowledge of classical Greek and most Romance languages. Grammatical knowledge of a many Indo-European languages, Korean and others.}
-{}
-{}
+	{Spanish, Mandarin, Latin, reading knowledge of classical Greek and most Romance languages. Grammatical knowledge of a many Indo-European languages, Korean and others.}
+	{}
+	{}
 
 \entry{Machine}
-{Python, Perl, R, PHP, Matlab, bash, some knowledge both of common LISP and Haskell, {\LaTeX}, HTML, CSS}
-{}
-{}
+	{Python, Perl, R, PHP, Matlab, bash, some knowledge both of common LISP and Haskell, {\LaTeX}, HTML, CSS}
+	{}
+	{}
 
 \section{Tools I Use}
 
@@ -320,57 +321,63 @@ Matlab, R/RStudio, Blender, Praat, Audacity, E-Prime, GIMP, pandoc, Jupyter. I'v
 I'd just like to interject for a moment, everything I write should be inferred to be under the GPLv3 license.
 
 \entry{In Progress}
-{Corpus Latinum Lucæ}
-{A linguistic corpus of the Latin language, searchable by regexes and grammatical category, with an interface written in Python}
-{}
+	{Corpus Latinum Lucæ \href{https://github.com/LukeSmithxyz/corpus-latinum}{\gh}}
+	{A planned linguistic corpus of the Latin language, to be searchable by regexes and grammatical category, with an interface written in Python. As of now I've constructed the parser to generate the corpus from raw text files.}
+	{}
 
 \entry{2017}
-{Luke's Auto-Rice Bootstrapping Scripts (LARBS) \href{https://github.com/LukeSmithxyz/larbs}{\gh}}
-{A dynamic installer for an i3wm Arch Linux distribution}
-{}
+	{Luke's Auto-Rice Bootstrapping Scripts (LARBS) \href{https://github.com/LukeSmithxyz/larbs}{\gh}}
+	{A dynamic installer for an i3wm Arch Linux distribution}
+	{}
 
 \entry{Pre-release}
-{\href{https://github.com/LukeSmithxyz/memespeaker}
-{Memespeaker}}
-{Narrated slideshow creator}
-{An ffmpeg-based tool for illustrating audio talks and lectures with pictures, without the time-consuming process of using video-editing software.}
+	{\href{https://github.com/LukeSmithxyz/memespeaker} {Memespeaker}}
+	{Narrated slideshow creator}
+	{An ffmpeg-based tool for illustrating audio talks and lectures with pictures, without the time-consuming process of using video-editing software.}
 
 \entry{2016--Now}
-{Voidrice \href{https://github.com/LukeSmithxyz/voidrice}{\gh}}
-{Linux dotfiles}
-{A set of GNU/Linux dotfiles that I popularized on YouTube, aiming at creating a powerful, optimized, all-purpose and lightweight general computing environment. Innovated dynammically configured and synced rc files.}
+	{Voidrice \href{https://github.com/LukeSmithxyz/voidrice}{\gh}}
+	{Linux dotfiles}
+	{A set of GNU/Linux dotfiles that I popularized on YouTube, aiming at creating a powerful, optimized, all-purpose and lightweight general computing environment. Innovated dynammically configured and synced rc files.}
 
 \entry{2015--Now}
-{\href{http://LukeSmith.xyz}{http://LukeSmith.xyz}}
-{My website}
-{I proudly report my website is minimal, yet attractive, with no sore-eyed CSS pseudo-magic and good readability. Modern traditional feel. I generate the website offline with PHP and upload a static version of only HTML/CSS.}
+	{\href{http://LukeSmith.xyz}{http://LukeSmith.xyz}}
+	{My website}
+	{I proudly report my website is minimal, yet attractive, with no sore-eyed CSS pseudo-magic and good readability. Modern traditional feel. I generate the website offline with PHP and upload a static version of only HTML/CSS.}
 
-\entry{2016}{/Comfy/ Arch}{Automatic ricing tool}
-{A web-based deployment system for configuration files which focuses on enabling novice Linux users to get immersed quickly in advanced ricing environments. No longer actively maintained, but likely to undergo an update.}
+\entry{2016}
+	{/Comfy/ Arch}
+	{Automatic ricing tool}
+	{A web-based deployment system for configuration files which focuses on enabling novice Linux users to get immersed quickly in advanced ricing environments. No longer actively maintained, but likely to undergo an update.}
 
 \entry{2013}
-{Vulgarizer}
-{Sound Change Simulator}
-{A string-manipulization paradigm written in Python for simulating phonetic and phonological change over time. The original implementation focused on modeling changes between Latin and Spanish and then other Romance languages, but if I continue the project, my hope is to generalize this.}
+	{Vulgarizer}
+	{Sound Change Simulator}
+	{A string-manipulization paradigm written in Python for simulating phonetic and phonological change over time. The original implementation focused on modeling changes between Latin and Spanish and then other Romance languages, but if I continue the project, my hope is to generalize this.}
 
 \section{Online Tutorials}
 
-I produce screencasts and produce other videos for public use as tutorials on YouTube on my channel (\href{https://youtube.com/c/LukeSmithxyz}{youtube.com/c/LukeSmithxyz}).
+I produce screencasts and produce other videos for public use as tutorials on YouTube on my channel. \href{https://youtube.com/c/LukeSmithxyz}{\yt}
 
 \entry{{\LaTeX}}
-{Covering {\LaTeX} basics and advanced techniques: formatting, use of bibtex for automatic citations sectioning, image-use, beamer presentations, macros.}
-{}
-{}
+	{Covering {\LaTeX} basics and advanced techniques: formatting, use of bibtex for automatic citations sectioning, image-use, beamer presentations, macros.
+	\href{https://www.youtube.com/playlist?list=PL-p5XmQHB_JSQvW8_mhBdcwEyxdVX0c1T}{\yt}
+	}
+	{}
+	{}
 
 \entry{vim}
-{Covering the extensible text-editor vim: basic tips, use of text objects, macros, remaps for creating IDE-like environments and some screencasts of practical uses in my day-by-day life.}
-{}
-{}
+	{Covering the extensible text-editor vim: basic tips, use of text objects, macros, remaps for creating IDE-like environments and some screencasts of practical uses in my day-by-day life.
+	\href{https://www.youtube.com/playlist?list=PL-p5XmQHB_JSTaEPygu1DZjuFfb704Uv7}{\yt}
+	}
+	{}
+	{}
 
 \entry{Linux Ricing}
-{Videos on hacking and modifying Linux graphical environments particularly on i3-gaps, including customization, window management, program-shortcutting, optimization.}
-{}
-{}
+	{Videos on hacking and modifying Linux graphical environments particularly on i3-gaps, including customization, window management, program-shortcutting, optimization.
+	\href{https://www.youtube.com/playlist?list=PL-p5XmQHB_JTcMSvPmXMzNe7ZPMxEx_Oz}{\yt}}
+	{}
+	{}
 
 \section{Writings}
 
@@ -380,12 +387,13 @@ Section incomplete. Only contains major degree requirements now. To be updated.
 	{Unnamed dissertation}
 	{Dissertation, \ua}
 	{
-	Probable committe?: \tgb, \mike, \mas, \rob.
+	Probable committee?: \tgb, \mike, \mas, \rob.
 	}
 
-\entry{In Progress}
+\entry{2017}
 {Scope Without Syntax: A Game Theoretic Approach
 	\href{http://lukesmith.xyz/qp2.pdf}{\pdf}
+	\href{https://github.com/LukeSmithxyz/scope-without-syntax}{\gh}
 	}
 	{Second qualifying paper, \ua}{
 	Committee: \tgb, \mas, \rob, \mike.
