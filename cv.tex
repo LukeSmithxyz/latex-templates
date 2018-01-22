@@ -1,6 +1,9 @@
 % xelatex
-\documentclass[letterpaper,10pt]{article}
+\documentclass[letterpaper,
+		%twocolumn,
+		10pt]{article}
 \usepackage[utf8]{inputenc}
+\usepackage{metalogo}
 \usepackage{xifthen}
 \usepackage[colorlinks=true,urlcolor=Blue]{hyperref}
 \usepackage{graphicx}
@@ -9,13 +12,11 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{titlesec}
 \usepackage[margin=1in]{geometry}
-\usepackage{longtable}
 \usepackage{titling}
 \newfontfamily\cfont{Noto Sans CJK SC}
 \usepackage{libertine}
 
-
-%%%%%%%Macro of image links in XeLaTeX
+% Macro to allow image links in XeLaTeX
 \ifxetex
   \usepackage{letltxmacro}
   \setlength{\XeTeXLinkMargin}{1pt}
@@ -31,53 +32,72 @@
 \fi
 %%%%%%%
 
+% Bold contents of a link
 \let\oldhref\href
-\renewcommand{\href}[2]{\oldhref{#1}{\bfseries#2}}
+\renewcommand{\href}[3][blue]{\oldhref{#2}{\color{#1}{#3}}}
 
-%Your name goes here:
+% Your name goes here:
 \author{Luke Smith}
 
+% Update date set to last compile:
 \date{\today}
-\renewcommand{\maketitle}{
-\par{\centering{\Huge  \textsc{\theauthor}}\par}
-{\footnotesize\hfill{}\color{gray}(Last updated \thedate.)}}
 
-%Setting the font I want:
+% Custom title command.
+\renewcommand{\maketitle}{
+	\hspace{.25\textwidth}
+	\begin{minipage}[t]{.5\textwidth}
+\par{\centering{\Huge  \bfseries{\theauthor}}\par}
+	\end{minipage}
+	\begin{minipage}[t]{.25\textwidth}
+{\footnotesize\hfill{}\color{gray}
+\hfill{}Download this document:
+
+\hfill{}\href[gray]{http://LukeSmith.xyz/cv.pdf}{http://LukeSmith.xyz/cv.pdf \pdf}
+
+\hfill{}(Last updated \thedate.)
+}
+	\end{minipage}
+}
+
+
+
+% Setting the font I want:
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{sqrcaps}
 
+% Making the \entry command
 \newcommand{\entry}[4]{
 \ifthenelse{\isempty{#3}}
 {\slimentry{#1}{#2}}{
 
-\begin{minipage}[t]{.15\textwidth}
+\begin{minipage}[t]{.15\linewidth}
 \hfill \textsc{#1}
 \end{minipage}
 \hfill\vline\hfill
-\begin{minipage}[t]{.80\textwidth}
-{\bf#2}\\\textit{#3}. \footnotesize{#4}
+\begin{minipage}[t]{.80\linewidth}
+{\bf#2}\\\textit{#3} \footnotesize{#4}
 \end{minipage}\\
-\vspace{.25cm}
+\vspace{.2cm}
 }}
 
 \newcommand{\slimentry}[2]{
 
-\begin{minipage}[t]{.15\textwidth}
+\begin{minipage}[t]{.15\linewidth}
 \hfill \textsc{#1}
 \end{minipage}
 \hfill\vline\hfill
-\begin{minipage}[t]{.80\textwidth}
+\begin{minipage}[t]{.80\linewidth}
 #2
 \end{minipage}\\
 \vspace{.25cm}
-}
+}% end \entry command definition
 
-%Some macros because I'm lazy:
+% Some macros because I'm lazy:
 \newcommand{\uga}{University of Georgia}
 \newcommand{\gsu}{Georgia State University}
 \newcommand{\ua}{University of Arizona}
 
-%Macros for people's names
+% Macros for people's names including link to their websites
 \newcommand{\tgb}{\href{http://coglanglab.com}{Tom Bever}}
 \newcommand{\mas}{\href{http://dingo.sbs.arizona.edu/~massimo/}{Massimo Piattelli-Palmarini}}
 \newcommand{\rob}{\href{https://rhenderson.net/}{Robert Henderson}}
@@ -88,20 +108,25 @@
 \newcommand{\vera}{\href{https://www.gsstudies.uga.edu/people/vera-lee-schoenfeld}{Vera Lee-Schoenfeld}}
 \newcommand{\tim}{\href{http://www.rom.uga.edu/directory/timothy-gupton}{Tim Gupton}}
 \newcommand{\pilar}{\href{http://www.rom.uga.edu/directory/pilar-chamorro}{Pilar Chamorro}}
-\newcommand{\jenni}{\href{https://www.jennimariapalomaki.com/}{Jennimaria Palom\"aki}}
+\newcommand{\jenni}{\href{https://www.jennimariapalomaki.com/}{Jennimaria Palomäki}}
 
-%Link images
-\newcommand{\pdf}{\includegraphics[height=.75\baselineskip]{pdf.png}}
-\newcommand{\yt}{\includegraphics[height=.75\baselineskip]{yt.png}}
-\newcommand{\gh}{\includegraphics[height=.75\baselineskip]{gh.png}}
+\let\lineheight\baselineskip
 
-%Section spacing and format:
-\titleformat{\section}{\Large\scshape\raggedright}{}{1em}{}[\titlerule]
+% Link images
+\newcommand{\pdf}{\includegraphics[height=.85em]{cv/pdf.png}}
+\newcommand{\yt}{\includegraphics[height=.85em]{cv/yt.png}}
+\newcommand{\gh}{\includegraphics[height=.85em]{cv/gh.png}}
+\newcommand{\www}{\includegraphics[height=.85em]{cv/www.png}}
+\newcommand{\email}{\includegraphics[height=.85em]{cv/email.png}}
+
+% Custom section spacing and formatting
+\titleformat{\part}{\Huge\scshape\filcenter}{}{1em}{}
+\titleformat{\section}{\Large\bf\raggedright}{}{1em}{}[{\titlerule[2pt]}]
 \titlespacing{\section}{0pt}{3pt}{7pt}
-\titleformat{\subsection}{\large\sc\centering}{}{0em}{\underline}%[\rule{3cm}{.2pt}]
+\titleformat{\subsection}{\large\bfseries\centering}{}{0em}{\underline}%[\rule{3cm}{.2pt}]
 \titlespacing{\subsection}{0pt}{7pt}{7pt}
 
-\setlength{\parindent}{0in}
+% No indentation
 \setlength{\parindent}{0in}
 
 \begin{document}
@@ -111,20 +136,18 @@
 \section{Basic Info}
 
 \begin{minipage}[t]{.5\linewidth}
-
 \begin{tabular}{rp{.75\linewidth}}
-    \textsc{Email:}     & \href{mailto:luke@lukesmith.xyz}{luke@lukesmith.xyz}\\
-    \textsc{Website:}&\href{http://www.lukesmith.xyz}{http://www.lukesmith.xyz}
+	\baselineskip=20pt
+	\email{} :     & \href{mailto:luke@lukesmith.xyz}{luke@lukesmith.xyz}\\
+	\www{} : &\href{http://www.lukesmith.xyz}{lukesmith.xyz}
 \end{tabular}
 \end{minipage}
 \begin{minipage}[t]{.5\linewidth}
 \begin{tabular}{rl}
-\textsc{Github:} & \href{http://github.com/LukeSmithxyz}{LukeSmithxyz}\\
-\textsc{YouTube:}&\href{http://youtube.com/c/LukeSmithxyz}{LukeSmithxyz}
+	\gh{} : & \href{http://github.com/LukeSmithxyz}{github.com/LukeSmithxyz}\\
+	\yt{} : &\href{http://youtube.com/c/LukeSmithxyz}{youtube.com/c/LukeSmithxyz}
 \end{tabular}
 \end{minipage}
-
-\vspace{.25cm}
 
 I like clarity of thought, rigor and non-pretentiousness. I've worked as a linguist, economic researcher and do freelance technical consultation. I mostly just have fun.
 
@@ -142,24 +165,27 @@ Since late 2016, I've also run a YouTube channel focusing on technology and GNU/
 	{Ph.D. in Linguistics}
 	{\ua, Tucson}
 	{Focusing on biolinguistics, syntax and human language technology. Advisors: \tgb, \mike.}
+
 \entry{2013--2015}
 	{M.A. in Linguistics}
 	{\uga, Athens, Georgia}
 	{Major in Syntax; minor in \textbf{Romance Languages}. Thesis: \textit{External Possession and the Undisentanglability of Syntax and Semantics} \href{http://lukesmith.xyz/thesis.pdf}{\pdf}. Advisor: \vera.}
+
 \entry{2012}
-	{Exchange Program, Zhèngzh\=ou Dàxué (\cfont{郑州大学})}
-	{Zhèngzh\=ou, China}
+	{Exchange Program, Zhèngzhōu Dàxué (\cfont{郑州大学})}
+	{Zhèngzhōu, China}
 	{Studying Chinese history.}
+
 \entry{2009--2012}
 	{B.A. in International Economics and Modern Languages}
 	{Andrew Young School of Policy Studies, \gsu, Atlanta}
-	{Specializations in Spanish and Chinese. Certificates in Economic History and International Trade}
+	{Specializations in Spanish and Chinese. Certificates in Economic History and International Trade.}
 
 \section{Classes Taught}
 
-More teaching information, along with my teaching evaluations and some materials can be found on my website at \href{http://www.lukesmith.xyz/classes}{lukesmith.xyz/classes}.
+More teaching information, along with my \textbf{teaching evaluations} and some materials can be found on my website at \href{http://www.lukesmith.xyz/classes}{lukesmith.xyz/classes \www}.
 
-%\entry{2017--Now}{``Historical Linguistics''}{YouTube}{An ongoing lecture series on YouTube, originally focusing on Historical Linguistics and Linguistic Thought, but brancing out to more general topics.}
+%\entry{2017--Now}{``Historical Linguistics''}{YouTube}{An ongoing lecture series on YouTube, originally focusing on Historical Linguistics and Linguistic Thought, but branching out to more general topics.}
 
 \entry{2018}
 	{LING150 -- ``Language'' Online Class}
@@ -169,12 +195,12 @@ More teaching information, along with my teaching evaluations and some materials
 \entry{2017--2018}
 	{ESOC210 -- ``The History of Hacking and Open Source Culture'' -- Graduate Assistant}
 	{\ua}
-	{Under David Seng.}
+	{Under David Seng. Grader.}
 
-\entry{Spring 2016}
+\entry{2016}
 	{LING300 -- ``Introduction to Syntax'' -- Teaching Assistant}
 	{\ua}
-	{Under Simin Karimi. Helped introduce undergraduates to the Gospel of Chomsky. Served as a substitute for main professor when gone, graded work and did administrivia.}
+	{Under \simin. Helped introduce undergraduates to the Gospel of Chomsky. Served as a substitute for main professor when gone, graded work and did administrivia.}
 
 \entry{2015--2017}
 	{LING150 -- ``Language'' -- Teaching Assistant}
@@ -186,55 +212,34 @@ More teaching information, along with my teaching evaluations and some materials
 	{\uga}
 	{I worked through my own syllabus and class plan and focus mainly on how language relates to wider issues in cognitive science. Also focused on the philosophy of language and historical linguistics.}
 
-\entry{Fall 2014}
+\entry{2014}
 	{LING3150 -- ``Generative Syntax'' -- Co-teacher}
 	{\uga}
 	{Covered Phrase-Structure Rules and X-bar Theory. A writing intensive course. Taught with \jenni.}
 
-\entry{Fall 2014}
+\entry{2014}
 	{Writing Intensive Program -- Teaching Assistant}
 	{\uga}
 	{Guided and graded essay-writing for linguistics students.}
 
-\section{Lectures and Presentations}
+\section{Presentations}
 
-Current projects and other information can be found on \href{http://lukesmith.xyz/linguistics.html}{http://lukesmith.xyz/linguistics}.
+Current projects and other information can be found on \href{http://lukesmith.xyz/linguistics.html}{http://lukesmith.xyz/linguistics \www}.
 
-\entry{2018}
+\entry{Soon}
+	{``The Evolution of the Ibero-Romance Irregular Imperfect: A Constraint-based Analysis''}
+	{28th Annual Symposium on Hispanic and Luso-Brazilian Literature, Language and Culture}
+
+\entry{2017}
 	{``Scope without Syntax: Towards a Game Theoretic Approach'' \href{http://lukesmith.xyz/dox/ling/luke_synsalon.pdf}{\pdf}}
 	{\ua{} Synsalon}
 
 \entry{2017}
-	{``The Origins and Mechanics of the Greek Alphabet'' \href{http://lukesmith.xyz/dox/etc/greek_alphabet.pdf} {\pdf}}
-	{Guest Lecture}
-	{For Shannon Grippando's class \textit{The Psychology of Writing Systems}}
-
-\entry{2017}
-	{``Language as Synesthesia'' \href{https://www.youtube.com/watch?v=he4-K3Ir1PY&list=PL-p5XmQHB_JQdpstJQ4DH18GZ8qt3KVxq} {\yt}}
+	{``Language as Synesthesia'' \href{https://www.youtube.com/watch?v=he4-K3Ir1PY&list=PL-p5XmQHB_JQdpstJQ4DH18GZ8qt3KVxq}{\yt} \href{http://lukesmith.xyz/dox/etc/luke_synesthesia.pdf}{\pdf}}
 	{Seminar on language and consciousness}
-	{Clarification of some points from \href{https://www.youtube.com/watch?v=fEY5qkgH3fo&list=PL-p5XmQHB_JQdpstJQ4DH18GZ8qt3KVxq&index=1} my qualifying paper.}
-
-\entry{2016}
-	{``The Phonetics of Language''}
-	{Guest Lecture}
-	{For Amy Fountain's class \textit{Language}}
-
-\entry{2016}
-	{``Constituent Structure---What is it and where does it come from?''}
-	{Guest Lecture (series of 3)}
-	{For Simin Karimi's class \textit{Introduction to Syntax}}
-
-\entry{2016}{``An Introduction to Minimalism''
-	\href{http://lukesmith.xyz/dox/etc/luke_doug_min.pdf}{\pdf}
-	\& ``Optimizing Structure''
-	\href{http://lukesmith.xyz/dox/etc/luke_doug_allphon.pdf}{\pdf}
-	}{Guest Lectures}{For Doug Merchant's class \textit{Generative Syntax}}
+	{Clarification of some points from \href{https://www.youtube.com/watch?v=fEY5qkgH3fo&list=PL-p5XmQHB_JQdpstJQ4DH18GZ8qt3KVxq&index=1}{my qualifying paper.}}
 
 \entry{2015}{``Towards Biolinguistic Clarity in Generative Syntax'' \href{https://www.youtube.com/watch?v=yk03pXPGiVs}{\yt}}{The Interdisciplinary Linguistics Conference at UGA, 2015}
-
-\entry{2015}{``Syntactic Theory and Psycholinguistics''
-	\href{http://lukesmith.xyz/dox/etc/syn_psycho.pdf}{\pdf}
-	}{Guest lecture}{For Doug Merchant's class \textit{Psychology of Language}}
 
 \entry{2015}
 	{``Syntax is for Real! -- Parameterization of Head Movement in Korean and its Effects on Scope and Alternations''}
@@ -245,21 +250,172 @@ Current projects and other information can be found on \href{http://lukesmith.xy
 	{\uga\ Linguistics Program Spring Colloquium}
 
 \entry{2013}
-	{``The acquisition of \emph{t\'u} and \emph{usted} by English speakers: A study of non-native knowledge and usage of forms of address''}
+	{``The acquisition of \emph{tú} and \emph{usted} by English speakers: A study of non-native knowledge and usage of forms of address''}
 	{Georgia State Undergraduate Research Conference}
 
 \entry{2012}
 	{``Theories of contraction: A survey of macroeconomic theories of depression''}
 	{Georgia State Undergraduate Research Conference}
 
-\section{Service}
+\section{Guest Lectures}
+
+\entry{2017}
+	{``The Origins and Mechanics of the Greek Alphabet'' \href{http://lukesmith.xyz/dox/etc/greek_alphabet.pdf} {\pdf}}
+	{Guest Lecture}
+	{For Shannon Grippando's class \textit{The Psychology of Writing Systems}}
+
+
+\entry{2016}
+	{``The Phonetics of Language''}
+	{Guest Lecture}
+	{For Amy Fountain's class \textit{Language}}
+
+\entry{2016}
+	{``Constituent Structure---What is it and where does it come from?''}
+	{Guest Lecture (series of 3)}
+	{For \simin's class \textit{Introduction to Syntax}}
+
+\entry{2016}{``An Introduction to Minimalism''
+	\href{http://lukesmith.xyz/dox/etc/luke_doug_min.pdf}{\pdf}
+	\& ``Optimizing Structure''
+	\href{http://lukesmith.xyz/dox/etc/luke_doug_allphon.pdf}{\pdf}
+	}{Guest Lectures}{For Doug Merchant's class \textit{Generative Syntax}}
+
+
+\entry{2015}{``Syntactic Theory and Psycholinguistics''
+	\href{http://lukesmith.xyz/dox/etc/syn_psycho.pdf}{\pdf}
+	}{Guest lecture}{For Doug Merchant's class \textit{Psychology of Language}}
+
+\section{Languages}
+
+\entry{Human}
+	{Spanish, Mandarin, Latin, some Persian and French, reading knowledge of classical Greek and most Romance languages. Grammatical knowledge of a many Indo-European languages, Korean and others.}
+	{}
+	{}
+
+\entry{Machine}
+	{Python, Perl, R, PHP, Matlab/GNU Octave, bash/shell, some superficial knowledge of C, common LISP and Haskell; markup languages including {\LaTeX}/{\XeTeX}, R Markdown, HTML, CSS.}
+	{}
+	{}
+
+\section{Tools I Use}
+
+I have lots of tutorials on many of these programs and tools on my \href{https://youtube.com/c/lukesmithxyz}{my YouTube channel \yt}.
+
+\subsection{Usual Workflow}
+
+I use a \textbf{vim}-based setup in a tiling window manager (\textbf{i3-gaps}). I compile documents using \textbf{R Markdown} or \textbf{\LaTeX}, and \textbf{biber} for references. I prefer to do multimedia manipulation in the terminal with tools like \textbf{imagemagick} and \textbf{ffmpeg} for extensibility's sake.
+tmux, ranger, ssh, mutt/notmuch/OfflineIMAP. Have run Microsoft, MacOS and GNU/Linux systems (both Debian and Arch-based varieties). I currently run Parabola GNU/Linux-libre on my machines.
+
+\subsection{Programs I Use}
+
+Matlab/Octave, R, RStudio, Blender, Praat, Audacity, E-Prime, GIMP, pandoc, Jupyter. I've managed websites manually via ssh and vim using HTML/CSS/PHP and with tools such as Github Pages (Jekyll) WordPress via either cpanel or wp-cli.
+
+\section{Public Code and Scripts}
+
+I'd just like to interject for a moment, everything I write should be inferred to be under the GPLv3 license.
+
+\entry{2017--2018}
+	{shortcut-sync \href{https://github.com/lukesmithxyz/shortcut-sync}{\gh}}
+	{A small system for synchronizing configs between bash and other shells, ranger and qutebrowser.
+	}
+	{}
+
+\entry{In Progress}
+	{Corpus Latinum Lucæ \href{https://github.com/LukeSmithxyz/corpus-latinum}{\gh}}
+	{A planned linguistic corpus of the Latin language, to be searchable by regexes and grammatical category, with an interface written in Python.}
+	{As of now I've constructed the parser to generate the corpus from raw text files.}
 
 \entry{2017--Now}
-	{Manager for Tom Bever's Language and Cognition Lab site}
+	{Luke's Auto-Rice Bootstrapping Scripts (LARBS) \href{http://larbs.xyz}{\www} \href{https://github.com/LukeSmithxyz/larbs}{\gh}}
+	{A dynamic installer for an i3wm Arch Linux distribution}
+	{}
+
+\entry{2016--Now}
+	{Voidrice \href{https://github.com/LukeSmithxyz/voidrice}{\gh}}
+	{Linux dotfiles}
+	{A set of GNU/Linux dotfiles that I popularized on YouTube, aiming at creating a powerful, optimized, all-purpose and lightweight general computing environment. Innovated dynammically configured and synced rc files.}
+
+\entry{2015}
+	{http://LukeSmith.xyz \href{http://LukeSmith.xyz}{\www}}
+	{My website}
+	{Written from scratch. Modern traditional feel. I generate the website offline with PHP and upload a static version of only HTML/CSS.}
+
+\entry{2016--2017}
+	{/Comfy/ Arch}
+	{Automatic ricing tool}
+	{A web-based deployment system for configuration files which focuses on enabling novice Linux users to get immersed quickly in advanced ricing environments. No longer actively maintained as it has been largely replaced by LARBS (above).}
+
+\entry{2013}
+	{Vulgarizer}
+	{Sound Change Simulator}
+	{A string-manipulation paradigm written in Python for simulating phonetic and phonological change over time. The original implementation focused on modeling changes between Latin and Spanish and then other Romance languages, but if I continue the project, my hope is to generalize this.}
+
+%\subsection{Other}
+
+%My build of the the suckless \href{https://github.com/LukeSmithxyz/st}{simple terminal (st) \gh} with added homerow binds and small improvements.
+
+\section{Online Tutorials}
+
+I produce screencasts and produce other videos for public use as tutorials on YouTube on my channel. \href{https://youtube.com/c/LukeSmithxyz}{\yt}
+As of January 2018, over 13,000 subscribers, with 1.4 millions views on 95 different videos. All of these series below are ongoing.
+
+%\entry{R and Statistics}
+	%{\footnotesize
+	%[1]: Arithmetic, Variables and Vectors
+	%[2]: Basic Functions
+	%[3]: Variance Correlation and Standard Deviation
+	%[4]: Playing Around with Normal Distributions
+	%}
+	%{}{}
+
+\entry{{\LaTeX}
+	\href{https://www.youtube.com/playlist?list=PL-p5XmQHB_JSQvW8_mhBdcwEyxdVX0c1T}{\yt}}
+	{\footnotesize
+\href{https://youtube.com/watch?v=NwnYHoNtfJ0}{[0]: Installation}
+\href{https://youtube.com/watch?v=mfRmmZ_84Mw}{[1]: Compiling, Titles, Sections, Formatting, Syntax}
+\href{https://youtube.com/watch?v=25LExaNtdF0}{[2]: Labels, References and Lists}
+\href{https://youtube.com/watch?v=46piog3Fzp4}{[3]: Bibliographies}
+\href{https://youtube.com/watch?v=VjsX4tznW40}{[4]: Résumé-making Part 1}
+\href{https://youtube.com/watch?v=o5-BZ7JmYWk}{[5]: Résumé-making Part 2}
+\href{https://youtube.com/watch?v=zgThRPjy-vw}{[6]: Images, Figures}
+\href{https://youtube.com/watch?v=zEjBCQhND2c}{[7]: Beamer Slideshow Presentations}
+\href{https://youtube.com/watch?v=rvgP7IMeUn8}{[8]: Macros}
+}
+{}{}
+
+\entry{vim
+	\href{https://www.youtube.com/playlist?list=PL-p5XmQHB_JSTaEPygu1DZjuFfb704Uv7}{\yt}
+	}
+	{\footnotesize
+\href{https://youtube.com/watch?v=wRFEBw02aT8}{Macros}---
+\href{https://youtube.com/watch?v=yNOkCYuPt3E}{Workflow with LaTeX}---
+\href{https://youtube.com/watch?v=jUfw7aHD_xY}{Basic Tips After Vimtutor}---
+\href{https://youtube.com/watch?v=K_8_gazN7h0}{SC-IM - Vim-based Terminal Spreadsheet Editor}---
+\href{https://youtube.com/watch?v=Q4I_Ft-VLAg}{Custom code snippets, for IDE functionality}---
+\href{https://youtube.com/watch?v=GqoJQft5R2E}{Vi-mode in bash}---
+\href{https://youtube.com/watch?v=ez1XBUqbS68}{Spell-checking and Dictionaries}---
+\href{https://youtube.com/watch?v=NzD2UdQl5Gc}{How vim Makes my Daily Life Easier}
+}{}{}
+
+\entry{Linux}
+	{Videos on hacking and modifying Linux graphical environments particularly on i3-gaps, including customization, window management, program-shortcutting, optimization.
+	\href{https://www.youtube.com/playlist?list=PL-p5XmQHB_JTcMSvPmXMzNe7ZPMxEx_Oz}{\yt}}
+	{}
+	{}
+
+\section{Service}
+\entry{Soon}
+	{Coyote Papers Editor for the 2018 Arizona Linguistics Circle}
+	{\ua}
+	{}
+
+\entry{2017--Now}
+	{Manager for Tom Bever's Language and Cognition Lab site \href{http://coglanglab.com}{\www}}
 	{\ua}
 	{\href{http://coglanglab.com}{http://coglanglab.com}}
 
-\entry{Fall 2017}
+\entry{2017}
 	{Arizona Linguistic Circle Peer-Reviewer}
 	{\ua}
 	{Judged and gave feedback for scholarly articled submitted for the Arizona Linguistics Circle.}
@@ -267,7 +423,7 @@ Current projects and other information can be found on \href{http://lukesmith.xy
 \entry{2015--2016}
 	{Indo-European Reading Group Director}
 	{\ua}
-	{Covering general historical linguistics, and the particulars of PIE morphology, phonology and development. Group materials located at \href{http://www.lukesmith.xyz/pie}{lukesmith.xyz/pie}.}
+	{Covering general historical linguistics, and the particulars of PIE morphology, phonology and development. Group materials located at \href{http://www.lukesmith.xyz/pie}{lukesmith.xyz/pie \www}.}
 
 \entry{2014--2016}
 	{LSUGA Website Manager}
@@ -277,111 +433,26 @@ Current projects and other information can be found on \href{http://lukesmith.xy
 \entry{2014--2015}
 	{LSUGA Interdisciplinary Conference in Linguistics Committee Member}
 	{\uga}
-	{Managed email and recording and audio and video for conference.}
+	{Managed email, reviewed papers and did and audio and video for conference.}
 
 \entry{2014--2015}
 	{Graduate Student Mentor}
 	{\uga}
 	{}
 
-\entry{Fall 2014}
+\entry{2014}
 	{Socio-Paths Sociolinguistics Reading Group Co-director}
 	{\uga}
 
-\entry{Spring 2014}
+\entry{2014}
 	{Typology Reading Group Director}
 	{\uga}
 	{Covered classical Greenbergian typology, particularly with relevance to historical linguistics.}
 
-\section{Languages}
-
-\entry{Human}
-	{Spanish, Mandarin, Latin, reading knowledge of classical Greek and most Romance languages. Grammatical knowledge of a many Indo-European languages, Korean and others.}
-	{}
-	{}
-
-\entry{Machine}
-	{Python, Perl, R, PHP, Matlab, bash, some knowledge both of common LISP and Haskell, {\LaTeX}, HTML, CSS}
-	{}
-	{}
-
-\section{Tools I Use}
-
-\subsection{Usual Workflow}
-
-I use a \textbf{vim}-based setup in a tiling window manager (\textbf{i3-gaps}). I compile documents using \textbf{\LaTeX}, and \textbf{biber} for references. I prefer to do multimedia manipulation in the terminal with tools like \textbf{imagemagick} and \textbf{ffmpeg}.
-tmux, ranger, ssh, mutt/notmuch/OfflineIMAP. Have run Microsoft, MacOS and GNU/Linux systems (both Debian and Arch-based varieties). I currently run Parabola GNU/Linux-libre on my machines.
-
-\subsection{Programs I Use}
-
-Matlab, R/RStudio, Blender, Praat, Audacity, E-Prime, GIMP, pandoc, Jupyter. I've managed websites manually via ssh and vim using HTML/CSS/PHP and with tools such as Github Pages (Jekyll) WordPress via either cpanel or wp-cli.
-
-\section{Public Code and Scripts}
-
-I'd just like to interject for a moment, everything I write should be inferred to be under the GPLv3 license.
-
-\entry{In Progress}
-	{Corpus Latinum Lucæ \href{https://github.com/LukeSmithxyz/corpus-latinum}{\gh}}
-	{A planned linguistic corpus of the Latin language, to be searchable by regexes and grammatical category, with an interface written in Python. As of now I've constructed the parser to generate the corpus from raw text files.}
-	{}
-
-\entry{2017}
-	{Luke's Auto-Rice Bootstrapping Scripts (LARBS) \href{https://github.com/LukeSmithxyz/larbs}{\gh}}
-	{A dynamic installer for an i3wm Arch Linux distribution}
-	{}
-
-\entry{Pre-release}
-	{\href{https://github.com/LukeSmithxyz/memespeaker} {Memespeaker}}
-	{Narrated slideshow creator}
-	{An ffmpeg-based tool for illustrating audio talks and lectures with pictures, without the time-consuming process of using video-editing software.}
-
-\entry{2016--Now}
-	{Voidrice \href{https://github.com/LukeSmithxyz/voidrice}{\gh}}
-	{Linux dotfiles}
-	{A set of GNU/Linux dotfiles that I popularized on YouTube, aiming at creating a powerful, optimized, all-purpose and lightweight general computing environment. Innovated dynammically configured and synced rc files.}
-
-\entry{2015--Now}
-	{\href{http://LukeSmith.xyz}{http://LukeSmith.xyz}}
-	{My website}
-	{I proudly report my website is minimal, yet attractive, with no sore-eyed CSS pseudo-magic and good readability. Modern traditional feel. I generate the website offline with PHP and upload a static version of only HTML/CSS.}
-
-\entry{2016}
-	{/Comfy/ Arch}
-	{Automatic ricing tool}
-	{A web-based deployment system for configuration files which focuses on enabling novice Linux users to get immersed quickly in advanced ricing environments. No longer actively maintained, but likely to undergo an update.}
-
-\entry{2013}
-	{Vulgarizer}
-	{Sound Change Simulator}
-	{A string-manipulization paradigm written in Python for simulating phonetic and phonological change over time. The original implementation focused on modeling changes between Latin and Spanish and then other Romance languages, but if I continue the project, my hope is to generalize this.}
-
-\section{Online Tutorials}
-
-I produce screencasts and produce other videos for public use as tutorials on YouTube on my channel. \href{https://youtube.com/c/LukeSmithxyz}{\yt}
-
-\entry{{\LaTeX}}
-	{Covering {\LaTeX} basics and advanced techniques: formatting, use of bibtex for automatic citations sectioning, image-use, beamer presentations, macros.
-	\href{https://www.youtube.com/playlist?list=PL-p5XmQHB_JSQvW8_mhBdcwEyxdVX0c1T}{\yt}
-	}
-	{}
-	{}
-
-\entry{vim}
-	{Covering the extensible text-editor vim: basic tips, use of text objects, macros, remaps for creating IDE-like environments and some screencasts of practical uses in my day-by-day life.
-	\href{https://www.youtube.com/playlist?list=PL-p5XmQHB_JSTaEPygu1DZjuFfb704Uv7}{\yt}
-	}
-	{}
-	{}
-
-\entry{Linux Ricing}
-	{Videos on hacking and modifying Linux graphical environments particularly on i3-gaps, including customization, window management, program-shortcutting, optimization.
-	\href{https://www.youtube.com/playlist?list=PL-p5XmQHB_JTcMSvPmXMzNe7ZPMxEx_Oz}{\yt}}
-	{}
-	{}
 
 \section{Writings}
 
-Section incomplete. Only contains major degree requirements now. To be updated.
+Section incomplete. Only contains major degree requirements now. To be updated. More minor squibs of mine can be found at \href{http://lukesmith.xyz/linguistics}{http://lukesmith.xyz/linguistics \www}.
 
 \entry{SOON}
 	{Unnamed dissertation}
@@ -396,7 +467,7 @@ Section incomplete. Only contains major degree requirements now. To be updated.
 	\href{https://github.com/LukeSmithxyz/scope-without-syntax}{\gh}
 	}
 	{Second qualifying paper, \ua}{
-	Committee: \tgb, \mas, \rob, \mike.
+	Committee: \rob, \mas, \tgb, \mike.
 	}
 
 \entry{2017}
@@ -417,5 +488,18 @@ Section incomplete. Only contains major degree requirements now. To be updated.
 \section{Hobbies}
 
 Classical languages, human evolution and prehistory, free (i.e. libre) software, survivalism, cybernetics, medieval thought, Rhaeto-Romance poetry.
+
+\section{References}
+
+\begin{itemize}
+	\item Email me \href{mailto:luke@lukesmith.xyz}{\email} with your interests in me and I'll refer you to someone who can vouch for me or defame me, depending on what you want.
+
+\item I upload all of my teaching evaluations to \href{http://lukesmith.xyz/classes\#evals}{http://lukesmith.xyz/classes\#evals \www} and they can be read there.
+\end{itemize}
+
+\section{Coming Soon\ldots}
+
+A video tutorial series on R and statistics---a video series on introductory linguistics
+
 
 \end{document}
