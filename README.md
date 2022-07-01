@@ -16,6 +16,6 @@ So far I have templates for the following:
 
 (Preview images coming.)
 
-Of course, now that these are on Github, I'll probably me beautifying them a bit as I go on.
+Of course, now that these are on Github, I'll probably be beautifying them a bit as I go on.
 
 By the way, the bibliography file might not be super useful, unless you already know my tags (just `lastname04`, etc.), although you might want to look at it for form. I guess if you're a linguist as well, it could be pratical anyway.
